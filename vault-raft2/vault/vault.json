@@ -1,0 +1,35 @@
+{
+   "backend":{
+      "raft":{
+         "path":"/vault/file",
+	 "node_id":"vault_2",
+	 "retry_join":[{
+		"leader_api_addr":"http://172.28.237.240:8210" 
+	 }]
+      }
+   },
+   "listener":{
+      "tcp":{
+         "address":"0.0.0.0:8220",
+	 "cluster_address":"0.0.0.0:8221",
+         "tls_disable":1
+      }
+   },
+   "seal":{
+      "transit":{
+	 "address":"http://172.28.237.240:8199",
+	 "disable_renewal":"false",
+	 "key_name":"autounseal",
+	 "mount_path":"transit/",
+	 "tls_skip_verify":"true",
+	 "token":"hvs.CAESIC27XeAZtX4UOrmlzvOGpbV9Vy79qyM_MAP2IosXqRESGh4KHGh2cy5UVTljSWUxN3Ewb0o4QWxCN2VWSWtFakk"
+      }
+   },
+   "default_lease_ttl":"168h",
+   "max_lease_ttl":"0h",
+   "ui":true,
+   "cluster_addr":"http://172.28.237.240:8221",
+   "disable_mlock":"true",
+   "api_addr":"http://172.28.237.240:8220",
+   "log_level":"Debug"
+}

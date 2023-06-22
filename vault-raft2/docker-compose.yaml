@@ -1,0 +1,14 @@
+vault:
+   image: vault
+   container_name: vault-raft2
+   environment:
+      VAULT_ADDR: http://127.0.0.1:8220
+   ports:
+      - "8220:8220"
+      - "8221:8221"
+   volumes:
+      - ./data:/vault/file:rw
+      - ./vault:/vault/config:rw
+   cap_add:
+      - IPC_LOCK
+   entrypoint: vault server -config=/vault/config/vault.json

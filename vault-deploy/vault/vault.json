@@ -1,0 +1,27 @@
+{
+   "backend":{
+      "file":{
+         "path":"/vault/file"
+      }
+   },
+   "listener":{
+      "tcp":{
+         "address":"0.0.0.0:8200",
+         "tls_disable":1
+      }
+   },
+   "seal":{
+      "transit":{
+	 "address":"http://172.28.237.240:8199",
+	 "disable_renewal":"false",
+	 "key_name":"autounseal",
+	 "mount_path":"transit/",
+	 "tls_skip_verify":"true",
+	 "token":"hvs.CAESIC27XeAZtX4UOrmlzvOGpbV9Vy79qyM_MAP2IosXqRESGh4KHGh2cy5UVTljSWUxN3Ewb0o4QWxCN2VWSWtFakk"
+      }
+   },
+   "default_lease_ttl":"168h",
+   "max_lease_ttl":"0h",
+   "ui":true,
+   "log_level":"Debug"
+}
